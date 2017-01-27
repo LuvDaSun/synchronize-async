@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "bin",
+    "rootDir": "src",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ]
+  },
+  "compileOnSave": false,
+  "includeGlob": [
+    "src/**/*.ts"
+  ]
+}
