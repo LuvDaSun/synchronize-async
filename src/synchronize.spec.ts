@@ -2,7 +2,7 @@ import * as test from "tape";
 import { synchronize } from "./synchronize";
 
 
-class Queue {
+class Count {
 
     numbers = ["0", "1", "2", "3"];
 
@@ -30,7 +30,7 @@ class Queue {
 test("synchronize", async t => {
     const l = [];
 
-    const q = new Queue();
+    const q = new Count();
     q.one().then(v => l.push(v));
     t.deepEqual(l, []);
 
@@ -39,6 +39,12 @@ test("synchronize", async t => {
 
     await q.three().then(v => l.push(v));
     t.deepEqual(l, ["1", "2", "3"]);
+
+    t.end();
+});
+
+
+test("synchronize on a non function", async t => {
 
     t.end();
 });
