@@ -1,5 +1,5 @@
 {
-  "name": "sync",
+  "name": "synchronize-async",
   "version": "0.0.0",
   "private": true,
   "description": "",
@@ -13,12 +13,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:scanctrl/scinspect.git"
+    "url": "git@github.com:LuvDaSun/synchronize-async.git"
   },
   "author": "Elmer Bulthuis",
   "license": "BSD-2-Clause",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^6.0.45",
     "@types/sinon": "^1.16.31",
