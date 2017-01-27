@@ -44,9 +44,3 @@ test("synchronize", async t => {
 });
 
 
-test("synchronize on a non function", async t => {
-
-    t.end();
-});
-
-
