@@ -9,8 +9,8 @@
     "rootDir": "src",
     "noEmitHelpers": true,
     "importHelpers": true,
+    "experimentalDecorators": true,
     "lib": [
-      "dom",
       "es2015"
     ]
   },
