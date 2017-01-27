@@ -1,16 +1,15 @@
 const promiseIndex = new WeakMap<any, Promise<any>>();
 
-export function synchronize(context?: any) {
+export function synchronize() {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         if (typeof descriptor.value !== "function") throw new Error("please use @synchronize on a function!");
 
-        const key = context || target;
         const original = descriptor.value;
 
         descriptor.value = function (...args) {
-            const lastPromise = Promise.resolve(promiseIndex.get(key));
+            const lastPromise = Promise.resolve(promiseIndex.get(target));
             const promise = lastPromise.then(() => original.apply(this, args));
-            promiseIndex.set(key, promise);
+            promiseIndex.set(target, promise);
             return promise;
         };
     };
