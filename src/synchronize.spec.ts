@@ -1,10 +1,10 @@
 import * as test from "tape";
-import { synchronize } from "./synchronize";
+import { synchronize, join } from "./synchronize";
 
 
 class Count {
 
-    numbers = ["0", "1", "2", "3"];
+    numbers = ["zero", "one", "two", "three"];
 
     @synchronize()
     async one() {
@@ -21,7 +21,13 @@ class Count {
     @synchronize()
     async three() {
         await new Promise(resolve => setTimeout(resolve, 100));
-        return this.numbers[3];
+        return "3";
+    }
+
+    @synchronize()
+    async num(n: number) {
+        await new Promise(resolve => setTimeout(resolve, 400));
+        return this.numbers[n];
     }
 }
 
@@ -30,15 +36,24 @@ class Count {
 test("synchronize", async t => {
     const l = [];
 
-    const q = new Count();
-    q.one().then(v => l.push(v));
+    const c = new Count();
+    c.one().then(v => l.push(v));
     t.deepEqual(l, []);
 
-    q.two().then(v => l.push(v));
+    c.two().then(v => l.push(v));
     t.deepEqual(l, []);
 
-    await q.three().then(v => l.push(v));
+    await c.three().then(v => l.push(v));
     t.deepEqual(l, ["1", "2", "3"]);
+
+    c.num(0).then(v => l.push(v));
+    await c.num(1).then(v => l.push(v));
+
+    c.num(2).then(v => l.push(v));
+    c.num(3).then(v => l.push(v));
+
+    await join(c);
+    t.deepEqual(l, ["1", "2", "3", "zero", "one", "two", "three"]);
 
     t.end();
 });
