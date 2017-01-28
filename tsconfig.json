@@ -2,9 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react",
     "noImplicitAny": false,
     "sourceMap": true,
+    "declaration": true,
     "outDir": "bin",
     "rootDir": "src",
     "noEmitHelpers": true,
