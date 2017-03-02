@@ -33,6 +33,20 @@ class Count {
 
 
 
+class SillyCalculatorExample {
+    current = 0;
+
+    @synchronize()
+    async add(value) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        this.current += value;
+        return this.current;
+    }
+
+}
+
+
+
 test("synchronize", async t => {
     const l = [];
 
@@ -59,3 +73,22 @@ test("synchronize", async t => {
 });
 
 
+test("silly calculator", async t => {
+    const calculator = new SillyCalculatorExample();
+    calculator.add(5).then(value => {
+        // value === 5
+        t.equal(value, 5);
+    });
+    calculator.add(5).then(value => {
+        // value === 10 (!)
+        t.equal(value, 10);
+    });
+
+    // also, you can get the result of the last promise with the join function
+    join(calculator).then(value => {
+        t.equal(value, 10);
+    });
+
+    await join(calculator);
+    t.end();
+});
