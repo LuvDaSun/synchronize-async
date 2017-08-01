@@ -1,6 +1,6 @@
 {
   "name": "synchronize-async",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "obj/synchronize.js",
   "types": "obj/synchronize.d.ts",
