@@ -1,6 +1,6 @@
 {
   "name": "synchronize-async",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "./node/main.js",
   "module": "./module/main.js",
