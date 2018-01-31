@@ -1,12 +1,9 @@
 {
-	"rules": {
-		"no-unused-expression": true,
-		"no-duplicate-variable": true,
-		"no-unused-variable": true,
-		"class-name": true,
-		"semicolon": [
-			"always"
-		],
-		"triple-equals": true
-	}
+	"defaultSeverity": "error",
+	"extends": [
+		"tslint:recommended"
+	],
+	"jsRules": {},
+	"rules": {},
+	"rulesDirectory": []
 }

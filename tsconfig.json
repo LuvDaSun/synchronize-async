@@ -1,21 +1,15 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es2017",
-    "noImplicitAny": false,
+    "module": "commonjs",
     "sourceMap": true,
-    "declaration": true,
-    "outDir": "obj",
-    "rootDir": "src",
-    "noEmitHelpers": true,
+    "outDir": "./node",
+    "rootDir": "./src",
     "importHelpers": true,
-    "experimentalDecorators": true,
-    "lib": [
-      "es2015"
-    ]
+    "strict": true,
+    "experimentalDecorators": true
   },
-  "compileOnSave": false,
-  "includeGlob": [
-    "src/**/*.ts"
+  "include": [
+    "src/**/*"
   ]
 }

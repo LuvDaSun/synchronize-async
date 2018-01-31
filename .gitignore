@@ -1,5 +1,8 @@
 .*
 *.log
 /node_modules/
-/coverage/
-/obj/
+/report/
+/docs/
+/node/
+/module/
+/types/
